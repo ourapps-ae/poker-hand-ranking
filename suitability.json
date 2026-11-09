@@ -1,0 +1,18 @@
+{
+  "format": 1,
+  "jobs": [
+    "poker-hand-ranking"
+  ],
+  "profiles": [
+    {
+      "id": "any",
+      "load": {},
+      "cost": "none",
+      "regions": [
+        "any"
+      ],
+      "compliance": []
+    }
+  ],
+  "notes": "Pure library. Measured here only for correctness; on this machine 3000 seven-card pair comparisons against the brute-force reference take about a quarter of a second including the reference. No hosted service, account or provider limit applies."
+}

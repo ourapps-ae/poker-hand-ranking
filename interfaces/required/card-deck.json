@@ -1,0 +1,15 @@
+{
+  "id": "card-deck",
+  "type": "ae/card-deck",
+  "version": "1.0.0",
+  "notes": "What createHandRanking(codes) reads from the card-deck component: its CardCodes value (card-deck's `cardCodes`). With no argument the standard fifty-two card codes built into poker-hand-ranking are used. Card codes are two characters, rank then suit.",
+  "types": {
+    "CardCodes": "{ranks:string,suits:string,rankNames:string[],rankPlurals:string[],rankOf(card):number,suitOf(card):number,fullDeck():Card[]}"
+  },
+  "operations": {
+    "cardCodes": {
+      "arguments": [],
+      "returns": "CardCodes (a value; rankOf and suitOf give 0 for a two and the suit's place in `suits`, rankNames and rankPlurals are for the hand names, fullDeck lists the fifty-two cards)"
+    }
+  }
+}

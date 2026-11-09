@@ -1,0 +1,29 @@
+{
+  "id": "ourapps-ae.poker-hand-ranking",
+  "name": "Poker hand ranking",
+  "kind": "component",
+  "status": "example",
+  "package": "ourapps-ae/poker-hand-ranking",
+  "version": "0.3.0",
+  "ports": [
+    {
+      "id": "card-deck",
+      "name": "Card deck",
+      "direction": "input",
+      "kind": "interface",
+      "type": "ae/card-deck",
+      "version": "1.0.0",
+      "required": true,
+      "cardinality": "one"
+    },
+    {
+      "id": "hand-ranking",
+      "name": "Hand ranking",
+      "direction": "output",
+      "kind": "interface",
+      "type": "ae/hand-ranking",
+      "version": "1.0.0"
+    }
+  ],
+  "settings": []
+}

@@ -1,0 +1,207 @@
+{
+  "format": 1,
+  "kind": "component",
+  "identity": {
+    "name": "ourapps-ae/poker-hand-ranking",
+    "version": "0.3.0",
+    "sourceRevision": "19905b75dbea89fbfd424d67fe26c81aaed0e018",
+    "sourceTreeDigest": "0000000000000000000000000000000000000000000000000000000000000000",
+    "licenceStatus": "deferred"
+  },
+  "facilities": [
+    {
+      "id": "hand-ranking",
+      "description": "Evaluate, compare and name poker hands"
+    }
+  ],
+  "documents": {
+    "contract": "CONTRACT.md",
+    "interfaces": [
+      "interfaces/hand-ranking.json",
+      "interfaces/required/card-deck.json",
+      "suitability.json"
+    ],
+    "examples": [
+      "examples/consumer.ts"
+    ],
+    "licenceNotice": "LICENCE"
+  },
+  "collect": [],
+  "files": [
+    {
+      "path": "CONTRACT.md",
+      "executable": false
+    },
+    {
+      "path": "INSTRUCTIONS.md",
+      "executable": false
+    },
+    {
+      "path": "LICENCE",
+      "executable": false
+    },
+    {
+      "path": "SOURCE.md",
+      "executable": false
+    },
+    {
+      "path": "examples/consumer.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/server/codes.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/server/index.ts",
+      "executable": false
+    },
+    {
+      "path": "implementation/server/ranking.ts",
+      "executable": false
+    },
+    {
+      "path": "interfaces/hand-ranking.json",
+      "executable": false
+    },
+    {
+      "path": "interfaces/required/card-deck.json",
+      "executable": false
+    },
+    {
+      "path": "suitability.json",
+      "executable": false
+    },
+    {
+      "path": "tests/fixtures/hands.json",
+      "executable": false
+    },
+    {
+      "path": "tests/server.test.ts",
+      "executable": false
+    },
+    {
+      "path": "tests/support/oracle.ts",
+      "executable": false
+    },
+    {
+      "path": "tools.lock.json",
+      "executable": false
+    },
+    {
+      "path": "visual/definition.json",
+      "executable": false
+    },
+    {
+      "path": "visual/examples/connected.json",
+      "executable": false
+    },
+    {
+      "path": "visual/output/connected.png",
+      "executable": false
+    },
+    {
+      "path": "visual/output/connected.svg",
+      "executable": false
+    },
+    {
+      "path": "visual/output/description.md",
+      "executable": false
+    }
+  ],
+  "artefacts": [
+    {
+      "source": "implementation/server/codes.ts",
+      "destination": "components/poker-hand-ranking/server/codes.ts",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/server/index.ts",
+      "destination": "components/poker-hand-ranking/server/index.ts",
+      "template": false,
+      "executable": false
+    },
+    {
+      "source": "implementation/server/ranking.ts",
+      "destination": "components/poker-hand-ranking/server/ranking.ts",
+      "template": false,
+      "executable": false
+    }
+  ],
+  "dependencies": [],
+  "provides": [
+    {
+      "id": "hand-ranking",
+      "type": "ae/hand-ranking",
+      "version": "1.0.0",
+      "path": "interfaces/hand-ranking.json"
+    }
+  ],
+  "requires": [
+    {
+      "id": "card-deck",
+      "type": "ae/card-deck",
+      "version": "1.0.0",
+      "path": "interfaces/required/card-deck.json"
+    }
+  ],
+  "visual": {
+    "definition": "visual/definition.json",
+    "examples": [
+      "visual/examples/connected.json"
+    ],
+    "outputs": [
+      "visual/output/connected.svg",
+      "visual/output/connected.png"
+    ],
+    "descriptions": [
+      "visual/output/description.md"
+    ]
+  },
+  "capabilities": {
+    "hosts": [],
+    "secrets": [],
+    "writes": [
+      "components/poker-hand-ranking/server/codes.ts",
+      "components/poker-hand-ranking/server/index.ts",
+      "components/poker-hand-ranking/server/ranking.ts"
+    ]
+  },
+  "infrastructure": {
+    "accounts": [],
+    "costStatus": "unmeasured",
+    "deployedReason": "No deployed service; injected resources and local library functions only."
+  },
+  "verification": [
+    {
+      "id": "web",
+      "root": "package",
+      "argv": [
+        "node",
+        "--test",
+        "tests/server.test.ts"
+      ],
+      "cwd": ".",
+      "prepare": [],
+      "tools": {
+        "node": "26.5.0"
+      },
+      "fixtures": [
+        "tests/fixtures/hands.json"
+      ],
+      "locks": [
+        "tools.lock.json"
+      ],
+      "network": false,
+      "timeoutSeconds": 120,
+      "expectedExit": 0,
+      "scope": "required-local",
+      "requirements": []
+    }
+  ],
+  "upgrade": {
+    "policy": "patch",
+    "migration": "files-only"
+  }
+}

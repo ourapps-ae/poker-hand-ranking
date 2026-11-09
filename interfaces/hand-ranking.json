@@ -1,0 +1,27 @@
+{
+  "id": "hand-ranking",
+  "type": "ae/hand-ranking",
+  "version": "1.0.0",
+  "types": {
+    "Card": "string, two characters: rank 2-9 T J Q K A then suit c d h s",
+    "Category": "highCard|pair|twoPair|threeOfAKind|straight|flush|fullHouse|fourOfAKind|straightFlush",
+    "Evaluation": "{score:number,category:Category,ranks:number[],name:string}; higher score wins, equal scores tie; ranks are 0 (two) to 12 (ace), a five-high straight is [3]",
+    "Comparison": "{result:-1|0|1,decidedBy:'category'|'combination'|'kicker'|'tie',kickersRead:number}",
+    "CardCodes": "{ranks:string,suits:string,rankNames:string[],rankPlurals:string[],rankOf(card):number,suitOf(card):number,fullDeck():Card[]}"
+  },
+  "operations": {
+    "evaluate": { "arguments": ["cards:Card[] (five to seven)"], "returns": "Evaluation", "errors": ["RangeError: fewer than five or more than seven cards, or a code that is not a card"] },
+    "compare": { "arguments": ["a:Card[]", "b:Card[]"], "returns": "number (positive when a beats b, negative when b beats a, zero for a tie)" },
+    "compareEvaluations": { "arguments": ["a:Evaluation", "b:Evaluation"], "returns": "Comparison" },
+    "winners": { "arguments": ["contenders:{id:string,cards:Card[]}[]", "board:Card[]"], "returns": "{ids:string[],evaluations:Record<string,Evaluation>} (every contender holding the best hand, in contender order)" },
+    "combinationSize": { "arguments": ["category:Category"], "returns": "number (ranks that make the combination; the rest of an evaluation's ranks are kickers)" },
+    "kickers": { "arguments": ["evaluation:Evaluation"], "returns": "number[]" },
+    "bestFive": { "arguments": ["cards:Card[]", "evaluation:Evaluation"], "returns": "Card[]" },
+    "patternCards": { "arguments": ["five:Card[]", "evaluation:Evaluation"], "returns": "Card[] (the pair, the trips, the flush ... without kickers)" },
+    "describe": { "arguments": ["category:number|Category", "ranks:number[]"], "returns": "string (English name, for example Full house, kings full of fours)" },
+    "codes": { "arguments": [], "returns": "CardCodes (the card-deck codes this ranking reads)" }
+  },
+  "construction": {
+    "createHandRanking": { "arguments": ["codes?:CardCodes"], "returns": "HandRanking (defaults to the standard fifty-two card codes)" }
+  }
+}

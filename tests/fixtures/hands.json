@@ -1,0 +1,17 @@
+[
+  {"cards": "As Ks Qs Js Ts 2c 3d", "category": "straightFlush", "ranks": [12], "name": "Royal flush"},
+  {"cards": "9h 8h 7h 6h 5h Ac Kd", "category": "straightFlush", "ranks": [7], "name": "Straight flush, nine high"},
+  {"cards": "Ad 2d 3d 4d 5d Kc Kh", "category": "straightFlush", "ranks": [3], "name": "Straight flush, five high"},
+  {"cards": "7c 7d 7h 7s Ac Kd 2h", "category": "fourOfAKind", "ranks": [5, 12], "name": "Four of a kind, sevens"},
+  {"cards": "Kc Kd Kh 4s 4c 2d 9h", "category": "fullHouse", "ranks": [11, 2], "name": "Full house, kings full of fours"},
+  {"cards": "Kc Kd Kh 4s 4c 4d 9h", "category": "fullHouse", "ranks": [11, 2], "name": "Full house, kings full of fours"},
+  {"cards": "Ac 9c 7c 4c 2c Kd Kh", "category": "flush", "ranks": [12, 7, 5, 2, 0], "name": "Flush, ace high"},
+  {"cards": "9c 8d 7h 6s 5c 2d 2h", "category": "straight", "ranks": [7], "name": "Straight, nine high"},
+  {"cards": "Ac 2d 3h 4s 5c 9d Kh", "category": "straight", "ranks": [3], "name": "Straight, five high"},
+  {"cards": "Tc Jd Qh Ks Ac 2d 3h", "category": "straight", "ranks": [12], "name": "Straight, ace high"},
+  {"cards": "Qc Qd Qh 9s 4c 2d 7h", "category": "threeOfAKind", "ranks": [10, 7, 5], "name": "Three of a kind, queens"},
+  {"cards": "Jc Jd 4h 4s Ac 2d 7h", "category": "twoPair", "ranks": [9, 2, 12], "name": "Two pair, jacks and fours"},
+  {"cards": "Jc Jd 4h 4s 3c 3d 7h", "category": "twoPair", "ranks": [9, 2, 5], "name": "Two pair, jacks and fours"},
+  {"cards": "8c 8d Ah Ks 3c 2d 7h", "category": "pair", "ranks": [6, 12, 11, 5], "name": "Pair of eights"},
+  {"cards": "Ac Jd 9h 7s 3c 2d 5h", "category": "highCard", "ranks": [12, 9, 7, 5, 3], "name": "Ace high"}
+]

@@ -1,0 +1,77 @@
+{
+  "name": "poker-hand-ranking",
+  "version": "0.3.0",
+  "title": "Poker hand ranking",
+  "description": "Best five-card poker hand from five to seven cards: category, deciding ranks and kickers, comparison, winners and ties, with English names.",
+  "facilities": [
+    {
+      "id": "hand-ranking",
+      "description": "Evaluate, compare and name poker hands"
+    }
+  ],
+  "provides": [
+    {
+      "id": "hand-ranking",
+      "type": "ae/hand-ranking",
+      "version": "1.0.0",
+      "path": "interfaces/hand-ranking.json"
+    }
+  ],
+  "requires": [
+    {
+      "id": "card-deck",
+      "type": "ae/card-deck",
+      "version": "1.0.0",
+      "path": "interfaces/required/card-deck.json"
+    }
+  ],
+  "collect": [],
+  "dependencies": [],
+  "suites": [
+    {
+      "id": "web",
+      "argv": [
+        "node",
+        "--test",
+        "tests/server.test.ts"
+      ],
+      "tools": {
+        "node": "26.5.0"
+      }
+    }
+  ],
+  "tools": {
+    "node": "26.5.0"
+  },
+  "platforms": [
+    "server"
+  ],
+  "text": {
+    "purpose": "Takes five to seven cards and returns the best five-card hand: its category, the ranks that decide it (combination ranks then kickers), a single score that orders all hands, and its English name. Also compares two hands and says how the difference was decided (category, combination or kicker, and how many kickers were read), finds the winners among contenders sharing a board (several on a tie, suits never break a tie), and rebuilds the five cards used. It reads card codes through a small card-codes object; the standard fifty-two card codes are built in and a connected card-deck may supply its own.",
+    "integration": "Create one ranking with `createHandRanking()` (or `createHandRanking(codes)` with the card-deck's codes) and pass it to poker-odds, poker-strategy and holdem-rules, which take it as the hand-ranking interface. It is a pure library: no state, no timers, no randomness. TypeScript on the server and any web or desktop consumer that bundles it; the Swift and Kotlin apps never rank hands themselves (they show the names the server sends), so there is no Apple or Android code.",
+    "infrastructure": "No deployed service, account or key. Pure functions over card codes.",
+    "verification": "`node --test tests/server.test.ts` checks named fixture hands for every category (royal flush, wheel, steel wheel, full house from two trips, three pairs, flush under a straight, ace-high), the ordering of scores, kicker and combination reporting, ties and winners, best-five reconstruction, refusal of bad input, and agreement with an independent brute-force reference (every five-card subset of seven) on 3000 seeded hand pairs. The extraction was also compared with the recipe's evaluate.ts on 20000 random five, six and seven card hands: score, ranks and name identical.",
+    "scenarios": "A table shows each player's hand name at showdown. A teaching screen compares two hands and says a kicker decided it. A computer player scores a candidate hand. A rules component asks for the winners of each pot.",
+    "updates": "Removing the component removes the files under components/poker-hand-ranking/; nothing is stored."
+  },
+  "agentInstructions": "Select this component whenever the application needs to decide which poker hand wins or to name a hand. It has no settings. Connect its hand-ranking interface to poker-odds, poker-strategy and holdem-rules. Optionally pass the card-deck's card codes to `createHandRanking`.",
+  "developerInstructions": "Nothing to configure and no accounts. Import `handRanking` (standard card codes) or `createHandRanking(codes)` from `server/index.ts`. Cards are two-character codes: rank 2-9 T J Q K A, suit c d h s. Use `evaluate` for one hand, `winners` for a showdown, `compareEvaluations` to explain a result.",
+  "suitability": {
+    "format": 1,
+    "jobs": [
+      "poker-hand-ranking"
+    ],
+    "profiles": [
+      {
+        "id": "any",
+        "load": {},
+        "cost": "none",
+        "regions": [
+          "any"
+        ],
+        "compliance": []
+      }
+    ],
+    "notes": "Pure library. Measured here only for correctness; on this machine 3000 seven-card pair comparisons against the brute-force reference take about a quarter of a second including the reference. No hosted service, account or provider limit applies."
+  }
+}
