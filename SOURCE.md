@@ -9,4 +9,4 @@ Reference revision: `19905b75dbea89fbfd424d67fe26c81aaed0e018`. Extraction sourc
 - `implementation/server/index.ts`: new, re-exports.
 - `tests/support/oracle.ts`: new, an independent brute-force evaluator used only by tests.
 - `examples/consumer.ts`, `tests/server.test.ts`, `tests/fixtures/hands.json`: new.
-- `interfaces/required/card-deck.json`: new; names card-deck's `cardCodes` value, which `createHandRanking(codes)` reads (`implementation/server/codes.ts` has the `CardCodes` type).
+- `interfaces/required-card-deck.json`: a byte copy of card-deck's document; `createHandRanking(codes)` reads its `cardCodes` value (the `CardCodes` schema of `interfaces/hand-ranking.json`; `implementation/server/codes.ts` has the `CardCodes` type).

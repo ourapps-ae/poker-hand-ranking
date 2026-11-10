@@ -16,13 +16,15 @@ No installer settings.
 - `implementation/server/ranking.ts` -> `components/poker-hand-ranking/server/ranking.ts`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5.0. Licence wording remains deferred.
+`tools.lock.json` pins verification tools: node 26.5.0. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
 
 ## Provided interfaces
-- `interfaces/hand-ranking.json` defines `hand-ranking` (ae/hand-ranking) version 1.0.0.
+- `interfaces/hand-ranking.json` defines `hand-ranking` (ae/hand-ranking) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
 
 ## Required interfaces
 - `card-deck` (ae/card-deck) version 1.0.0, supplied by the recipe or application.
+
+Each `interfaces/required-<id>.json` is a byte copy of the providing component's document.
 
 ## Integration
 Create one ranking with `createHandRanking()` (or `createHandRanking(codes)` with the card-deck's codes) and pass it to poker-odds, poker-strategy and holdem-rules, which take it as the hand-ranking interface. It is a pure library: no state, no timers, no randomness. TypeScript on the server and any web or desktop consumer that bundles it; the Swift and Kotlin apps never rank hands themselves (they show the names the server sends), so there is no Apple or Android code.
