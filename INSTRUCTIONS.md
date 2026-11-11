@@ -15,5 +15,5 @@ Nothing to configure and no accounts. Import `handRanking` (standard card codes)
 ## How to check
 From the component directory:
 
-- `node --test tests/server.test.ts` (web, required-local; tools: node 26.5.0)
-- `python3.12 -B /Users/george/Projects/com/my/tools/check_component.py components/poker-hand-ranking` validates the manifest, sidecars and runs the required-local suite.
+- `node --test tests/server.test.ts` (web, required-local; tools: node 26.5)
+- `python3 -m aepm review <digest> --store STORE --policy POLICY --trusted --allow-network` checks an archive fetched with `python3 -m aepm fetch ourapps-ae/poker-hand-ranking@VERSION --store STORE --from https://ourapps.app` and runs its suites.

@@ -16,7 +16,7 @@ No installer settings.
 - `implementation/server/ranking.ts` -> `components/poker-hand-ranking/server/ranking.ts`
 
 Dependencies: none.
-`tools.lock.json` pins verification tools: node 26.5.0. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
+`tools.lock.json` pins verification tools: node 26.5. Licence: `Apache-2.0` (`LICENCE`, `NOTICE`).
 
 ## Provided interfaces
 - `interfaces/hand-ranking.json` defines `hand-ranking` (ae/hand-ranking) version 1.0.0: an OpenRPC 1.3.2 document, one method per function (a member of a created object is `<Type>.<member>`), with parameter, result and data types as JSON Schema 2020-12 (`components.schemas`) and thrown errors under `errors`.
@@ -38,7 +38,7 @@ No deployed service, account or key. Pure functions over card codes.
 ## Verification
 `node --test tests/server.test.ts` checks named fixture hands for every category (royal flush, wheel, steel wheel, full house from two trips, three pairs, flush under a straight, ace-high), the ordering of scores, kicker and combination reporting, ties and winners, best-five reconstruction, refusal of bad input, and agreement with an independent brute-force reference (every five-card subset of seven) on 3000 seeded hand pairs. The extraction was also compared with the recipe's evaluate.ts on 20000 random five, six and seven card hands: score, ranks and name identical.
 
-- `node --test tests/server.test.ts` (web, required-local; tools: node 26.5.0)
+- `node --test tests/server.test.ts` (web, required-local; tools: node 26.5)
 
 ## Scenarios and presentation
 A table shows each player's hand name at showdown. A teaching screen compares two hands and says a kicker decided it. A computer player scores a candidate hand. A rules component asks for the winners of each pot.
