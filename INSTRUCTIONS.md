@@ -3,7 +3,7 @@
 ## For the agent
 Select this component whenever the application needs to decide which poker hand wins or to name a hand. It has no settings. Connect its hand-ranking interface to poker-odds, poker-strategy and holdem-rules. Optionally pass the card-deck's card codes to `createHandRanking`.
 
-- Select package `ourapps-ae/poker-hand-ranking` version `0.4.1`.
+- Select package `ourapps-ae/poker-hand-ranking` version `0.5.0`.
 - No installer settings.
 - Connect the provided `hand-ranking` (ae/hand-ranking 1.0.0) to the consumer that needs it.
 - Supply `card-deck` (ae/card-deck 1.0.0) from the component that provides it.
