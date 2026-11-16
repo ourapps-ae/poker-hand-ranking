@@ -1,6 +1,6 @@
 {
   "name": "poker-hand-ranking",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "title": "Poker hand ranking",
   "description": "Best five-card poker hand from five to seven cards: category, deciding ranks and kickers, comparison, winners and ties, with English names.",
   "facilities": [
@@ -73,5 +73,122 @@
       }
     ],
     "notes": "Pure library. Measured here only for correctness; on this machine 3000 seven-card pair comparisons against the brute-force reference take about a quarter of a second including the reference. No hosted service, account or provider limit applies."
+  },
+  "classes": [
+    {
+      "reference": {
+        "name": "ourapps-ae/poker-hand-ranking-class",
+        "version": "1.0.0",
+        "digest": "d308e9318a0ccd7d2c38569c0b40549e88545da36c137411153d1b9c7249424a"
+      },
+      "descriptor": {
+        "format": 1,
+        "name": "ourapps-ae/poker-hand-ranking-class",
+        "version": "1.0.0",
+        "provides": [
+          {
+            "type": "ae/hand-ranking",
+            "version": "1.0.0",
+            "path": "classes/poker-hand-ranking-class/hand-ranking.json",
+            "modules": {
+              "server": [
+                "server/index.ts"
+              ]
+            }
+          }
+        ],
+        "requires": [
+          {
+            "type": "ae/card-deck",
+            "version": "1.0.0"
+          }
+        ],
+        "settings": {
+          "type": "object",
+          "properties": {},
+          "required": [],
+          "additionalProperties": false
+        },
+        "inventory": [
+          {
+            "path": "classes/poker-hand-ranking-class/check.mjs",
+            "digest": "99da8581f099f74d65ed5165e4daff8ed8ad01a294f22446e8b861972fe82465"
+          },
+          {
+            "path": "classes/poker-hand-ranking-class/hand-ranking.json",
+            "digest": "0661a2a4b3986548921ed54988b2028a268dbc4bb34a81f00a1368713c5810ba"
+          },
+          {
+            "path": "classes/poker-hand-ranking-class/runtime.mjs",
+            "digest": "7440f3891614c423f74668cb5a2445fea58bbfa4d7c740c8e8a855d1d9300d43"
+          }
+        ],
+        "verification": [
+          {
+            "id": "shared",
+            "root": "package",
+            "argv": [
+              "node",
+              "classes/poker-hand-ranking-class/check.mjs"
+            ],
+            "cwd": ".",
+            "prepare": [],
+            "tools": {
+              "node": "26.5"
+            },
+            "fixtures": [
+              "classes/poker-hand-ranking-class/check.mjs"
+            ],
+            "locks": [],
+            "network": false,
+            "timeoutSeconds": 60,
+            "expectedExit": 0,
+            "scope": "required-local",
+            "requirements": []
+          }
+        ]
+      }
+    }
+  ],
+  "implements": [
+    {
+      "name": "ourapps-ae/poker-hand-ranking-class",
+      "version": "1.0.0",
+      "digest": "d308e9318a0ccd7d2c38569c0b40549e88545da36c137411153d1b9c7249424a"
+    }
+  ],
+  "upstream": [],
+  "compatibility": {
+    "runtimes": {
+      "node": ">=26.5.0 <27.0.0"
+    },
+    "frameworks": {},
+    "dependencies": [],
+    "styles": {
+      "scope": "none",
+      "namespaces": [],
+      "conflicts": []
+    }
+  },
+  "maintenance": {
+    "owners": [
+      "Level N Ltd"
+    ],
+    "contact": "https://github.com/ourapps-ae/poker-hand-ranking/issues",
+    "repository": "https://github.com/ourapps-ae/poker-hand-ranking",
+    "updates": {
+      "source": "https://github.com/ourapps-ae/poker-hand-ranking/releases",
+      "strategy": "manual"
+    }
+  },
+  "supportedPlatforms": [
+    "server"
+  ],
+  "licence": "Apache-2.0",
+  "licenceFile": "LICENCE",
+  "noticeFile": "NOTICE",
+  "templates": [],
+  "modules": {
+    "server": "server/index.ts"
   }
 }

@@ -1,0 +1,10 @@
+import { assert, load } from './runtime.mjs';
+const { handRanking: ranking } = await load('server/index.ts');
+const cards = text => text.split(' ');
+assert.equal(ranking.evaluate(cards('Ah Kh Qh Jh Th')).category, 'straightFlush');
+assert.equal(ranking.evaluate(cards('Ac Ad Ah As 2c')).category, 'fourOfAKind');
+assert.ok(ranking.compare(cards('2c 3d 4h 5s 6c'), cards('Ac 2d 3h 4s 5c')) > 0);
+assert.equal(ranking.compare(cards('Ac Kd Qh Js 9c'), cards('As Kh Qd Jc 9d')), 0);
+const winners = ranking.winners([{ id: 'a', cards: cards('2c 3d') }, { id: 'b', cards: cards('2h 3s') }], cards('Ac Kd Qh Js Tc'));
+assert.deepEqual(winners.ids, ['a', 'b']);
+assert.throws(() => ranking.evaluate(cards('Ac Kd Qh Js')));
