@@ -1,6 +1,6 @@
 {
   "name": "poker-hand-ranking",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "title": "Poker hand ranking",
   "description": "Best five-card poker hand from five to seven cards: category, deciding ranks and kickers, comparison, winners and ties, with English names.",
   "facilities": [
@@ -78,13 +78,17 @@
     {
       "reference": {
         "name": "ourapps-ae/poker-hand-ranking-class",
-        "version": "1.0.0",
-        "digest": "d308e9318a0ccd7d2c38569c0b40549e88545da36c137411153d1b9c7249424a"
+        "version": "1.1.0",
+        "digest": "9f98049eb095c5c9ebc6d205290a52f631e4d572cd008d93ce4e9586b878ebfe"
       },
       "descriptor": {
-        "format": 1,
+        "format": 2,
         "name": "ourapps-ae/poker-hand-ranking-class",
-        "version": "1.0.0",
+        "version": "1.1.0",
+        "title": "Poker hand ranking",
+        "summary": "Ranks five to seven cards into poker hands and finds the winners",
+        "category": "games/cards/poker",
+        "presentation": "none",
         "provides": [
           {
             "type": "ae/hand-ranking",
@@ -153,8 +157,8 @@
   "implements": [
     {
       "name": "ourapps-ae/poker-hand-ranking-class",
-      "version": "1.0.0",
-      "digest": "d308e9318a0ccd7d2c38569c0b40549e88545da36c137411153d1b9c7249424a"
+      "version": "1.1.0",
+      "digest": "9f98049eb095c5c9ebc6d205290a52f631e4d572cd008d93ce4e9586b878ebfe"
     }
   ],
   "upstream": [],
@@ -218,5 +222,11 @@
         "manual": "Without the package manager, install Node 26 from nodejs.org (the installer, or the zip or tar archive with its folder put first on PATH); on Linux also from the NodeSource repository."
       }
     ]
-  }
+  },
+  "release": {
+    "channel": "features",
+    "fixes": []
+  },
+  "images": [],
+  "vulnerabilityWaivers": []
 }
